@@ -1,0 +1,41 @@
+#include<stdio.h>
+#include<math.h>
+#define F(x) (x*x*x - x*x -1)
+
+
+int main()
+{
+    int i=1;
+    float a,b,c,fc,fa,fb;
+    printf("Enter the value of a and b: ");
+    scanf("%f%f",&a,&b);
+
+    do
+    {
+        fa = F(a);
+        fb = F(b);
+
+        c = (a*F(b)-b*F(a))/(F(b)-F(a));
+        fc = F(c);
+        printf("\n i=%d a = %.3f b = %.3f F(a) = %.3f F(b) = %.3f c = %.3f F(c) = %.3f ",i,a,b,fa,fb,c,fc);
+        if(F(a) * F(c)<0)
+        {
+            b = c;
+        }
+        else
+        {
+            a = c;
+
+        }
+
+        i++;
+
+    }
+    while(fabs(F(c)) > 0.001);
+
+    printf("\n\n appoximate root = %.3f\n",c);
+}
+
+
+
+
