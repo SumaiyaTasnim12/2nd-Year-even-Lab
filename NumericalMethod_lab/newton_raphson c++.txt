@@ -1,0 +1,32 @@
+#include<iostream>
+using namespace std;
+#include<math.h>
+#include<conio.h>
+//#include<iomanip>
+#define F(x) ((x*x*x)-(3*x)+1)
+#define DF(x) ((3*x*x)-3)
+int main()
+{
+    int step = 1;
+    cout.precision(4);
+    float xn,fxn,dfxn,xn1;
+    float a = 0;
+    xn = a;
+
+    do
+    {
+        fxn = F(xn);
+        dfxn = DF(xn);
+        xn1 = xn - (fxn/dfxn);
+        cout << "Step : " << step<<"  "<< "Xn : " <<  xn <<"  " << "F(xn) : " <<fxn<<"  " << "DF(xn): "<< dfxn<<"  " << "Xn+1 : " <<xn1<< "  "<<endl;
+
+        xn = xn1;
+
+        step++;
+    }
+    while(fabs(fxn)>0.0001);
+    cout << endl;
+    cout << "Root: "<< xn1;
+
+    getch();
+}
