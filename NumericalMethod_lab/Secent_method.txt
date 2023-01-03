@@ -1,0 +1,33 @@
+#include<stdio.h>
+#include<conio.h>
+#include<math.h>
+
+#define f(x) ((x*x*x)-(2*x)-5)
+void main()
+{
+
+    int i=0;
+    float x0,x1,x2,fx0,fx1,fx2;
+
+    printf("Enter Two Element: ");
+    scanf("%f%f",&x0,&x1);
+    do
+    {
+        fx0 = f(x0);
+        fx1 = f(x1);
+        x2 = x1 - (f(x1)*(x1-x0))/(f(x1)-f(x0));
+        fx2 = f(x2);
+
+        fx0= fx1;
+        fx1=fx2;
+        x0=x1;
+        x1=x2;
+        i++;
+        printf("Iteration: %d\t = %.3f\n",i,x2);
+
+    }while(fabs(fx2)>0.001);
+    printf("\nRoot is: %.3f", x2);
+
+
+    getch();
+}
